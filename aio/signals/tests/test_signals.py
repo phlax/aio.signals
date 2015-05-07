@@ -1,4 +1,3 @@
-import os
 import unittest
 import asyncio
 
@@ -9,7 +8,7 @@ from aio.signals import Signals
 class AioSignalsTestCase(unittest.TestCase):
 
     def test_listen(self):
-        
+
         def signal_called():
             pass
 
@@ -21,7 +20,7 @@ class AioSignalsTestCase(unittest.TestCase):
             {"test-signal": set([signal_called])})
 
     def test_listen_again(self):
-        
+
         def signal_called():
             pass
 
@@ -34,7 +33,7 @@ class AioSignalsTestCase(unittest.TestCase):
             {"test-signal": set([signal_called])})
 
     def test_unlisten(self):
-        
+
         def signal_called():
             pass
 
@@ -53,7 +52,7 @@ class AioSignalsTestCase(unittest.TestCase):
     def test_unlisten_again(self):
         """
         calling signals.unlisten twice does nothing
-        """        
+        """
 
         def signal_called():
             pass
@@ -71,7 +70,7 @@ class AioSignalsTestCase(unittest.TestCase):
             signals._signals,
             {"test-signal": set([signal_called2])})
 
-    def test_unlisten_missing_signal(self):        
+    def test_unlisten_missing_signal(self):
         """
         if signals.unlisten is called with non-existent signal
         silently ignore
@@ -88,7 +87,7 @@ class AioSignalsTestCase(unittest.TestCase):
             signals._signals,
             {"test-signal": set([signal_called])})
 
-    def test_unlisten_missing_signal(self):        
+    def test_unlisten_missing_func(self):
         """
         if signals.unlisten is called with non-existent callback func
         silently ignore
