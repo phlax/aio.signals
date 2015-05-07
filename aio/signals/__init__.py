@@ -1,5 +1,6 @@
-import asyncio
+__version__ = "0.0.1"
 
+import asyncio
 import logging
 
 log = logging.getLogger("aio.signals")
