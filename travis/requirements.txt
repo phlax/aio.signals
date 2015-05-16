@@ -1,1 +1,2 @@
--e git+https://github.com/phlax/aio.testing.git#egg=aio.testing
+git+https://github.com/phlax/aio.testing.git#egg=aio.testing
+
