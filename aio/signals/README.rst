@@ -8,9 +8,6 @@ Installation
   # pip install aio.signals
 
 
-  >>> True
-  False
-
 Using
 -----
 
