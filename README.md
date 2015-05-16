@@ -12,10 +12,10 @@ Installation
 ------------
 Install with:
 
-``
+```
   pip install aio.signals
-``
+```
 
 Usage
 -----
-For more information about using aio.signals please [aio/signals](aio/signals).
+For more detailed information about using aio.signals please see [aio/signals](aio/signals).
