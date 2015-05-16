@@ -15,7 +15,7 @@ class AioSignalsTestCase(unittest.TestCase):
         signals = Signals()
         signals.listen('test-signal', signal_called)
 
-        self.assertEquals(
+        self.assertEqual(
             signals._signals,
             {"test-signal": set([signal_called])})
 
@@ -28,7 +28,7 @@ class AioSignalsTestCase(unittest.TestCase):
         signals.listen('test-signal', signal_called)
         signals.listen('test-signal', signal_called)
 
-        self.assertEquals(
+        self.assertEqual(
             signals._signals,
             {"test-signal": set([signal_called])})
 
@@ -45,7 +45,7 @@ class AioSignalsTestCase(unittest.TestCase):
         signals.listen('test-signal', signal_called2)
         signals.unlisten('test-signal', signal_called)
 
-        self.assertEquals(
+        self.assertEqual(
             signals._signals,
             {"test-signal": set([signal_called2])})
 
@@ -66,7 +66,7 @@ class AioSignalsTestCase(unittest.TestCase):
         signals.unlisten('test-signal', signal_called)
         signals.unlisten('test-signal', signal_called)
 
-        self.assertEquals(
+        self.assertEqual(
             signals._signals,
             {"test-signal": set([signal_called2])})
 
@@ -83,7 +83,7 @@ class AioSignalsTestCase(unittest.TestCase):
         signals.listen('test-signal', signal_called)
         signals.unlisten('FOO-SIGNAL', signal_called)
 
-        self.assertEquals(
+        self.assertEqual(
             signals._signals,
             {"test-signal": set([signal_called])})
 
@@ -102,7 +102,7 @@ class AioSignalsTestCase(unittest.TestCase):
         signals = Signals()
         signals.listen('test-signal', signal_called)
         signals.unlisten('test-signal', signal_called2)
-        self.assertEquals(
+        self.assertEqual(
             signals._signals,
             {"test-signal": set([signal_called])})
 
@@ -127,6 +127,6 @@ class AioSignalsTestCase(unittest.TestCase):
 
         result = yield from signals.emit('test-signal', "EXPECTED RESULT")
 
-        self.assertEquals(result, ["done"])
-        self.assertEquals(checker.signal, "test-signal")
-        self.assertEquals(checker.args, "EXPECTED RESULT")
+        self.assertEqual(result, ["done"])
+        self.assertEqual(checker.signal, "test-signal")
+        self.assertEqual(checker.args, "EXPECTED RESULT")
