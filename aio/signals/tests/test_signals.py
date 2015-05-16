@@ -53,7 +53,8 @@ class AioSignalsTestCase(unittest.TestCase):
         """
         calling signals.unlisten twice does nothing
         """
-
+        self.assertTrue(False)
+        
         def signal_called():
             pass
 

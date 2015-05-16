@@ -33,6 +33,7 @@ setup(
     package_data={'': ['*.conf', 'README.rst']},    
     zip_safe=False,    
     tests_require=tests_require,
+    test_suite="aio.signals.tests",
     install_requires=install_requires,
     entry_points="""
     # -*- Entry points: -*-
