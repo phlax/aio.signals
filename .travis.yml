@@ -6,6 +6,9 @@ install:
  - pip install -r travis/requirements.txt
  - pip install .
 
+before_script
+ - python setup.py test
+
 script:
  - python -m unittest discover
  - python -m doctest README.rst
