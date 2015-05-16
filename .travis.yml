@@ -1,0 +1,11 @@
+language: python
+python:
+ - "3.4"
+
+install:
+ - pip install -r travis/requirements.txt
+ - pip install .
+
+script:
+ - python -m unittest discover
+ - python -m doctest README.rst

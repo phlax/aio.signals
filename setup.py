@@ -30,7 +30,8 @@ setup(
     packages=find_packages(),
     namespace_packages=['aio'],
     include_package_data=True,
-    zip_safe=False,
+    package_data={'': ['*.conf', 'README.rst']},    
+    zip_safe=False,    
     tests_require=tests_require,
     install_requires=install_requires,
     entry_points="""
