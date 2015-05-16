@@ -1,12 +1,5 @@
-===========
-aio.signals
-===========
-
-Installation
-------------
-
-  # pip install aio.signals
-
+aio.signals usage
+=================
 
 Using
 -----
