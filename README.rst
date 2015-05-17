@@ -6,12 +6,14 @@ Pubsub system for the aio_ asyncio framework
 .. _aio: https://github.com/phlax/aio
 
 
+
 Build status
 ------------
 
 .. image:: https://travis-ci.org/phlax/aio.signals.svg?branch=master
 	       :target: https://travis-ci.org/phlax/aio.signals
 
+----
 
 
 Installation
@@ -21,6 +23,8 @@ Install with:
 .. code:: bash
 
 	  pip install aio.signals
+
+----
 
 
 Code example
@@ -41,13 +45,13 @@ The callback listener takes 2 arguments, the name of the signal, and the argumen
 
 	  signals = Signals()
 
-The listen function is called synchronously, but the callback listener should be a coroutine
+The listen function is called synchronously, but the callback listener should be a coroutine or future
 
 .. code:: python
 
 	  signals.listen("my-signal", asyncio.coroutine(listener))
 
-The emit function is an asyncio.task
+The emit function is a coroutine
 
 .. code:: python
 
