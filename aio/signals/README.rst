@@ -24,4 +24,4 @@ Using
 
 >>> aiotest(run_test)()
 >>> result.message
- 'BOOM!'
+'BOOM!'
