@@ -32,16 +32,20 @@ Code example
 
 	  from aio.signals import Signals
 
+The callback listener takes 2 arguments, the name of the signal, and the argument that was emitted
+
+.. code:: python
+
 	  def listener(signal, message):
 	      print(message)
 
 	  signals = Signals()
 
-The listen function is called synchronously, but the callback should be a coroutine
+The listen function is called synchronously, but the callback listener should be a coroutine
 
 .. code:: python
 
-	  signals.listen("listener", asyncio.coroutine(callback))
+	  signals.listen("my-signal", asyncio.coroutine(listener))
 
 The emit function is an asyncio.task
 
