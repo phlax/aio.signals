@@ -26,7 +26,9 @@ setup(
     description="Pubsub system for aio framework",
     long_description=long_description,
     classifiers=[
-        "Programming Language :: Python 3.4",
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3.4",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
     keywords='',
