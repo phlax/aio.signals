@@ -37,9 +37,15 @@ Code example
 
 	  signals = Signals()
 
-The listen function is called synchronously
+The listen function is called synchronously, but the callback should be a coroutine
+
+.. code:: python
 
 	  signals.listen("listener", asyncio.coroutine(callback))
+
+The emit function is an asyncio.task
+
+.. code:: python
 
 	  loop = asyncio.get_event_loop()
 	  loop.run_until_complete(
