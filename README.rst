@@ -6,16 +6,12 @@ Pubsub system for the aio_ asyncio framework
 .. _aio: https://github.com/phlax/aio
 
 
-----
-
 
 Build status
 ------------
 
 .. image:: https://travis-ci.org/phlax/aio.signals.svg?branch=master
 	       :target: https://travis-ci.org/phlax/aio.signals
-
-----
 
 
 Installation
@@ -25,8 +21,6 @@ Install with:
 .. code:: bash
 
 	  pip install aio.signals
-
-----
 
 
 Code example
