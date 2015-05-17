@@ -32,8 +32,6 @@ Install with:
 Code example
 ------------
 
-.. code:: python
-
 The callback listener takes 2 arguments, the name of the signal, and the argument that was emitted
 
 The listen function is called synchronously, but the callback listener should be a coroutine or future
