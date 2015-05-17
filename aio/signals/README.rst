@@ -4,24 +4,24 @@ aio.signals usage
 Using
 -----
 
- >>> class Result:
- ...     message = None
- >>> result = Result()
+>>> class Result:
+...     message = None
+>>> result = Result()
 
- >>> from aio.signals import Signals
- >>> signals = Signals()
+>>> from aio.signals import Signals
+>>> signals = Signals()
 
- >>> def callback(signal, message):
- ...     result.message = message
+>>> def callback(signal, message):
+...     result.message = message
 
- >>> import asyncio
- >>> signals.listen("test-signal", asyncio.coroutine(callback))
+>>> import asyncio
+>>> signals.listen("test-signal", asyncio.coroutine(callback))
 
- >>> def run_test():
- ...     yield from signals.emit("test-signal", 'BOOM!')
+>>> def run_test():
+...     yield from signals.emit("test-signal", 'BOOM!')
 
- >>> from aio.testing import aiotest
+>>> from aio.testing import aiotest
 
- >>> aiotest(run_test)()
- >>> result.message
+>>> aiotest(run_test)()
+>>> result.message
  'BOOM!'
