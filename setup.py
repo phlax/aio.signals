@@ -12,7 +12,7 @@ install_requires = ['setuptools']
 if sys.version_info < (3, 4):
     install_requires += ['asyncio']
 
-tests_require = install_requires + ['aio.testing']
+tests_require = install_requires + ['aio.testing>=0.0.2']
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
