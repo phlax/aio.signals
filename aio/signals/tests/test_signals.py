@@ -1,7 +1,7 @@
 import unittest
 import asyncio
 
-from aio.testing import aiotest
+import aio.testing
 from aio.signals import Signals
 
 
@@ -106,7 +106,7 @@ class AioSignalsTestCase(unittest.TestCase):
             signals._signals,
             {"test-signal": set([signal_called])})
 
-    @aiotest
+    @aio.testing.run_until_complete
     def test_emit(self):
         """
         """

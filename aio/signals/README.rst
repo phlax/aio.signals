@@ -12,16 +12,16 @@ Using
 >>> signals = Signals()
 
 >>> def callback(signal, message):
-...     result.message = message
+...     print(message)
 
 >>> import asyncio
+>>> import aio.testing
+
 >>> signals.listen("test-signal", asyncio.coroutine(callback))
 
->>> def run_test():
+>>> @aio.testing.run_until_complete
+... def run_test():
 ...     yield from signals.emit("test-signal", 'BOOM!')
 
->>> from aio.testing import aiotest
-
->>> aiotest(run_test)()
->>> result.message
-'BOOM!'
+>>> run_test()
+BOOM!
