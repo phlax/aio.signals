@@ -4,24 +4,32 @@ aio.signals usage
 Using
 -----
 
->>> class Result:
-...     message = None
->>> result = Result()
-
->>> from aio.signals import Signals
->>> signals = Signals()
-
->>> def callback(signal, message):
-...     print(message)
-
 >>> import asyncio
 >>> import aio.testing
+>>> from aio.signals import Signals
 
->>> signals.listen("test-signal", asyncio.coroutine(callback))
+>>> @asyncio.coroutine
+... def callback(signal, message):
+...     print(message)
 
 >>> @aio.testing.run_until_complete
-... def run_test():
-...     yield from signals.emit("test-signal", 'BOOM!')
+... def run_test(_signals, message):
+...     yield from _signals.emit("test-signal", message)
 
->>> run_test()
+>>> signals = Signals()
+>>> signals.listen("test-signal", callback)
+
+>>> run_test(signals, 'BOOM!')
 BOOM!
+
+The handler doesnt have to be a coroutine but it will be wrapped if its not
+
+>>> def callback(signal, message):
+...     yield from asyncio.sleep(2)
+...     print(message)
+
+>>> signals = Signals()
+>>> signals.listen("test-signal", callback)
+
+>>> run_test(signals, 'BOOM AGAIN!')
+BOOM AGAIN!

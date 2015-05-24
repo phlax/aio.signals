@@ -20,6 +20,13 @@ def read(*rnames):
 
 long_description = read("README.rst")
 
+long_description = (
+    'Detailed documentation\n'
+    + '**********************\n'
+    + '\n'
+    + read("README.rst")
+    + '\n')
+
 setup(
     name='aio.signals',
     version=version,
@@ -39,7 +46,6 @@ setup(
     packages=find_packages(),
     namespace_packages=['aio'],
     include_package_data=True,
-    package_data={'': ['*.conf', 'README.rst']},
     zip_safe=False,
     tests_require=tests_require,
     test_suite="aio.signals.tests",

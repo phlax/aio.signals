@@ -29,5 +29,7 @@ class Signals(object):
             tasks = []
             for signal in self._signals[s]:
                 log.debug('emitting %s %s %s' % (s, signal, v))
+                if not asyncio.iscoroutinefunction(signal):
+                    signal = asyncio.coroutine(signal)
                 tasks.append(asyncio.async(signal(s, v)))
             return asyncio.gather(*tasks)

@@ -26,14 +26,16 @@ Install with:
 	  pip install aio.signals
 
 
-Code example
-------------
+Quickstart
+----------
+
+The listen function is called synchronously, but the callback listener will be called as a coroutine if it isnt one
 
 The callback listener takes 2 arguments, the name of the signal, and the argument that was emitted
 
-The listen function is called synchronously, but the callback listener should be a coroutine or future
-
 The emit function is a coroutine
+
+Add the following code to a file my_signals.py
 
 .. code:: python
 
@@ -50,3 +52,11 @@ The emit function is a coroutine
 	  loop = asyncio.get_event_loop()
 	  loop.run_until_complete(
 	      signals.emit("my-signal", 'BOOM!'))
+
+
+Run with
+
+.. code:: bash
+
+	  python my_signals.py
+
