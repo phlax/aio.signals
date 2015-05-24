@@ -14,6 +14,7 @@ if sys.version_info < (3, 4):
 
 tests_require = install_requires + ['aio.testing>=0.0.2']
 
+
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
@@ -38,8 +39,8 @@ setup(
     packages=find_packages(),
     namespace_packages=['aio'],
     include_package_data=True,
-    package_data={'': ['*.conf', 'README.rst']},    
-    zip_safe=False,    
+    package_data={'': ['*.conf', 'README.rst']},
+    zip_safe=False,
     tests_require=tests_require,
     test_suite="aio.signals.tests",
     install_requires=install_requires,
