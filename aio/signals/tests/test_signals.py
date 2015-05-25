@@ -9,7 +9,7 @@ class AioSignalsTestCase(unittest.TestCase):
 
     def test_listen(self):
 
-        def signal_called():
+        def signal_called(signal):
             pass
 
         signals = Signals()
@@ -21,7 +21,7 @@ class AioSignalsTestCase(unittest.TestCase):
 
     def test_listen_again(self):
 
-        def signal_called():
+        def signal_called(signal):
             pass
 
         signals = Signals()
@@ -34,10 +34,10 @@ class AioSignalsTestCase(unittest.TestCase):
 
     def test_unlisten(self):
 
-        def signal_called():
+        def signal_called(signal):
             pass
 
-        def signal_called2():
+        def signal_called2(signal):
             pass
 
         signals = Signals()
@@ -116,10 +116,10 @@ class AioSignalsTestCase(unittest.TestCase):
         checker = Checker()
 
         @asyncio.coroutine
-        def signal_called(signal, args):
+        def signal_called(signal):
             yield from asyncio.sleep(2)
-            checker.signal = signal
-            checker.args = args
+            checker.signal = signal.name
+            checker.args = signal.data
             return "done"
 
         signals = Signals()

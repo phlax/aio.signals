@@ -31,7 +31,7 @@ Quickstart
 
 The listen function is called synchronously, but the callback listener will be called as a coroutine if it isnt one
 
-The callback listener takes 2 arguments, the name of the signal, and the argument that was emitted
+The callback listener receives a signal object that has the name of the signal and the object that the signal was emitted with
 
 The emit function is a coroutine
 
@@ -42,9 +42,9 @@ Add the following code to a file my_signals.py
 	  import asyncio
 	  from aio.signals import Signals	  
 	  
-	  @asyncio.coroutine
-	  def listener(signal, message):
-	      print(message)
+	  def listener(signal):
+	      yield from asyncio.sleep(1)
+	      print(signal.data)
 
 	  signals = Signals()
 	  signals.listen("my-signal", listener)

@@ -4,6 +4,21 @@ import logging
 log = logging.getLogger("aio.signals")
 
 
+class SignalEvent(object):
+
+    def __init__(self, name, data):
+        self._name = name
+        self._data = data
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def data(self):
+        return self._data
+
+
 class Signals(object):
 
     def __init__(self):
@@ -31,5 +46,6 @@ class Signals(object):
                 log.debug('emitting %s %s %s' % (s, signal, v))
                 if not asyncio.iscoroutinefunction(signal):
                     signal = asyncio.coroutine(signal)
-                tasks.append(asyncio.async(signal(s, v)))
+                tasks.append(asyncio.async(signal(SignalEvent(s, v))))
+            # dont yield from here
             return asyncio.gather(*tasks)
