@@ -30,7 +30,7 @@ long_description = (
 try:
     long_description += (
         '\n'
-        + read("aio", "app", "README.rst")
+        + read("aio", "signals", "README.rst")
         + '\n')
 except FileNotFoundError:
     pass
