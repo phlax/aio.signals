@@ -27,6 +27,15 @@ long_description = (
     + read("README.rst")
     + '\n')
 
+try:
+    long_description += (
+        '\n'
+        + read("aio", "app", "README.rst")
+        + '\n')
+except FileNotFoundError:
+    pass
+
+
 setup(
     name='aio.signals',
     version=version,
